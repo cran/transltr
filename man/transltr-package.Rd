@@ -4,7 +4,7 @@
 \name{transltr-package}
 \alias{transltr}
 \alias{transltr-package}
-\title{Support Many Languages in R Programs}
+\title{Support Many Languages in R}
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
 
@@ -29,20 +29,18 @@ and translations.
 and translations can be exported to text formats that are sharable and
 easily modifiable, even by non-technical collaborators.
 \item Its features are extensively documented (even internal ones).
-\item It can always locate and extract translatable strings (litteral character
-vectors passed to \code{\link[=translate]{translate()}}). They are treated as regular \R objects
-(as \code{\link{Text}} objects).
+\item It can always locate and extract translatable strings (no matter where
+they are in the source code).
+\item Translatable source text is treated as a regular \R object.
 }
-
-\code{\link[=translate]{translate()}} works everywhere, including in calls to \code{\link[=stop]{stop()}}, \code{\link[=warning]{warning()}},
-and \code{\link[=message]{message()}}.
 }
 
 \section{Getting Started}{
 
-Write code as you normally would. Whenever a piece of text (a literal 
-character vector) must be available in multiple languages, wrap it with
-\code{\link[=translate]{translate()}}.
+Write code as you normally would. Whenever a piece of text (literal 
+character vectors) should be available in multiple languages, pass it
+to method \code{\link[=Translator]{Translator$translate()}}. You may also use your
+own function.
 \enumerate{
 \item Once you are ready to translate your project, call \code{\link[=find_source]{find_source()}}.
 This returns a \code{\link{Translator}} object.
